@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net10.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Platforms>x64</Platforms>
+		<PublishSingleFile>true</PublishSingleFile>
+		<PublishReadyToRun>true</PublishReadyToRun>
+		<ApplicationIcon>Icons\application-v1.ico</ApplicationIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Icons\application-v1.ico" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="Audio\bass64.dll">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Link>bass.dll</Link>
+			<Condition>'$(Platform)' == 'x64'</Condition>
+		</Content>
+		<Content Include="Icons\application-v1.ico" />
+	</ItemGroup>
+
+	<!-- Копируем 32-битную библиотеку, если собираем под x86 -->
+	<!-- <ItemGroup>
+		<Content Include="Audio\bass64.dll">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Link>bass.dll</Link>
+			<Condition>'$(Platform)' == 'x86'</Condition>
+		</Content>
+	</ItemGroup>-->
+
+	<ItemGroup>
+		<Folder Include="Storage\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ManagedBass" Version="4.0.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Icons\application-v1.ico">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+</Project>

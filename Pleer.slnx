@@ -1,0 +1,17 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="ARM" />
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Pleer.csproj">
+    <Platform Solution="*|x86" Project="x86" />
+    <Platform Solution="Release|Any CPU" Project="x64" />
+    <Platform Solution="Release|x64" Project="x64" />
+    <Build Solution="*|Any CPU" Project="false" />
+    <Build Solution="*|ARM" Project="false" />
+    <Build Solution="*|ARM64" Project="false" />
+  </Project>
+</Solution>
